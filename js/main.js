@@ -13,7 +13,7 @@ const displayCategory = (categories) =>{
     button.innerHTML = `<button onclick="loadDataBasedOnButtonClick('${categories.category_id}')" class="btn">${categories.category}</button>`;
     categoryNameContainer.append(button);
 };
-const loadDataBasedOnButtonClick = async (id) =>{
+const loadDataBasedOnButtonClick = async (id ="1000") =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
     const videos = await data.data;
@@ -22,6 +22,7 @@ const loadDataBasedOnButtonClick = async (id) =>{
 loadDataBasedOnButtonClick();
 const displayVideos = (videos) =>{
     const videosContainer = document.getElementById("videos-container");
+    videosContainer.innerText = ""
    for (let video of videos){
     console.log(video);
     const videoDiv = document.createElement("div");
