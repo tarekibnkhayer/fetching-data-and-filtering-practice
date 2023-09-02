@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- daisy ui and tailwind css integration -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="max-w-screen-xl mx-auto">  
+    <!-- header -->
+    <header class="text-center text-7xl font-semibold text-blue-700 mb-10">My Blog</header>
+    <hr class="rounded-t-sm border-solid bg-black font-black">
+    <!-- main -->
+    <main class="mt-12 space-y-6">
+        <h3 class="text-3xl">1Q. Discuss the scope of var, let, and const</h3>
+        <div class="bg-pink-700 text-3xl text-white  p-4 space-y-4">
+            <p class="underline">Scope: </p>
+            <p>Scope determines the accessibility of Variables. JavaScript have 3 types of Scope:</p>
+            <p>1.Block Scope <br>2.Function Scope  <br>3.Global Scope</p>
+            <p><span class="underline">1.Block Scope</span>: ES6 introduce two important JavaScript Keyword: </p>
+            <p>1.let  <br>2.const</p>
+            <p>These two Keyword provide Block Scope in JavaScript.Variables declared with var keyword can't have block scope.</p>
+            <p>Variables declared inside curly brackets {} block can't be accessed from outside the block if it is declared with let/const.</p>
+            <p><span class="underline">2.Local Scope/Function Scope</span>: Each function create a new Scope. Variables defined inside a function can't be accessible from outside the function. Variables declared with var, let, const are quite similar when declared inside a function. </p>
+            <p>var, let , const all have function scope.</p>
+            <p><span class="underline">3.Global Scope</span>: A Variable declared outside a block and function scope , becomes global. All scripts and functions on a web page can access it.</p>
+        </div>
+        <h3 class="text-3xl">2Q. Tell us the use cases of null and undefined</h3>
+        <div class="bg-teal-500 text-3xl text-white p-4 space-y-4">
+            <p class="font-black text-black">Use Cases for null:</p>
+            <p><span class="underline">1.Explicitly Empty</span>: When you want to explicitly indicate that a variable or object property should be empty or have no value.</p>
+            <p><span class="underline">2.Initializing</span>: Sometimes, you may set a variable to null as an initial value and later assign it an actual value when needed.
+            </p>
+            <p><span class="underline">3.Resetting</span>:You might set a variable to null to reset or clear it.</p>
+            <p class="font-black text-black">Use Cases for undefined:</p>
+            <p><span class="underline">1.Uninitialized Variables</span>:When a variable is declared but not assigned a value, it's automatically undefined.</p>
+            <p><span class="underline">2.Function Return</span>:When a function doesn't have a return statement or returns nothing explicitly, it returns undefined.</p>
+            <p><span class="underline">3.Missing Object Properties</span>: When you try to access an object property that doesn't exist, you'll get undefined.</p>
+        </div>
+        <h3 class="text-3xl">3Q. What do you mean by REST API?</h3>
+        <div class="bg-green-600 text-3xl text-white p-4"><p>A REST API (Representational State Transfer Application Programming Interface) is a design style for creating web services. It uses standard HTTP methods like GET (retrieve), POST (create), PUT (update), and DELETE (remove) to perform operations on resources, which are identified by URLs. REST APIs are stateless and have a uniform interface, making them simple and scalable. They're widely used for building web services that can be accessed by various clients.</p></div>
+    </main>
+</body>
+</html>

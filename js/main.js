@@ -17,21 +17,41 @@ const loadDataBasedOnButtonClick = async (id ="1000") =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
     const videos = await data.data;
-    displayVideos(videos);
+    if(videos.length === 0){
+      const videosContainer = document.getElementById("videos-container");
+      videosContainer.innerText = "";
+      const noVideosContainer = document.getElementById("no-videos-container");
+      noVideosContainer.innerHTML = ``
+      const noDataDiv = document.createElement("div");
+      noDataDiv.innerHTML = `<div class ="flex justify-center items-center"><img src="images/Icon.png"></div>
+      <p class="text-center text-3xl font-bold leading-10">Oops!! Sorry, There is no <br> content here</p>
+      `;
+      noVideosContainer.append(noDataDiv);
+    }
+    else{
+      const noVideosContainer = document.getElementById("no-videos-container");
+      noVideosContainer.innerText = ""
+      displayVideos(videos);}
 };
 loadDataBasedOnButtonClick();
 const displayVideos = (videos) =>{
     const videosContainer = document.getElementById("videos-container");
     videosContainer.innerText = ""
    for (let video of videos){
-    console.log(video);
     const videoDiv = document.createElement("div");
     videoDiv.innerHTML = `
-        <div class="w-[312px] h-[200px] rounded-lg"><img src="${video.thumbnail}" class="w-full h-full">
-        
+        <div class="w-[312px] h-[200px] rounded-lg mb-5"><img src="${video.thumbnail}" class="w-full h-full">
         </div>
+      <div class="flex items-center gap-3">  <div class="w-10 h-10"><img src="${video.authors[0].profile_picture}" class="rounded-full w-full h-full"></div>
+      <p class="text-lg leading-7 font-bold">${video.title}</p>
+      </div>
+      <div class= "flex gap-2"><p class="ml-14 text-[#171717B3] text-[14px] font-normal">${video.authors[0].profile_name}</p>
+      <div>${video.authors[0].verified?"<img src='images/verified.jpg' class='w-5 h-5'>":""}</div>
+      </div>
+      <p class="ml-14 text-[#171717B3] text-[14px] font-normal">${video.others.views} views</p>
     `;
     videosContainer.append(videoDiv);
-   }
+   };
+  
 }
 
