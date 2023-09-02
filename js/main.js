@@ -38,10 +38,13 @@ const displayVideos = (videos) =>{
     const videosContainer = document.getElementById("videos-container");
     videosContainer.innerText = ""
    for (let video of videos){
+    console.log(video)
     const videoDiv = document.createElement("div");
     videoDiv.innerHTML = `
-        <div class="w-[312px] h-[200px] rounded-lg mb-5"><img src="${video.thumbnail}" class="w-full h-full">
-        </div>
+       <div> <div class="w-[312px] h-[200px] rounded-lg mb-5"><img src="${video.thumbnail}" class="w-full h-full">
+       </div>
+       <div class="bg-black rounded text-white  relative bottom-16 left-24 w-52 px-5">${video.others.posted_date?(Math.floor((video.others.posted_date)/3600)).toFixed(0)+"hours" +((Math.floor(video.others.posted_date)% 3600)/60).toFixed(0) + "min ago":""}</div>
+       </div>
       <div class="flex items-center gap-3">  <div class="w-10 h-10"><img src="${video.authors[0].profile_picture}" class="rounded-full w-full h-full"></div>
       <p class="text-lg leading-7 font-bold">${video.title}</p>
       </div>
